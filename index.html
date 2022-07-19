@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:cadetblue;
+        }
+        table{
+            height:300px;
+            width:270px;
+            border-color: black;
+        }
+        button{
+            padding: 30px;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <table border="1" align="center" id="table">
+      
+        
+        <tr >
+            <td colspan="3" id="td1" style="font-size:30px;background-color: aliceblue;">  </td>
+            <td><button onclick="fun1('=')">=</button></td>
+        </tr>
+        <tr >
+            <td  ><button onclick="fun(0)">0</button></td>
+            <td><button onclick="fun(1)">1</button></td>
+            <td><button onclick="fun(2)">2</button></td>
+            <td><button onclick="fun(3)">3</button></td>
+            
+        </tr>
+        <tr>
+            <td><button onclick="fun(4)">4</button></td>
+            <td><button onclick="fun(5)">5</button></td>
+            <td><button onclick="fun(6)">6</button></td>
+            <td><button onclick="fun(7)">7</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="fun(8)"> 8</button></td>
+            <td><button onclick="fun(9)"> 9</button></td>
+            <td><button onclick="fun1('+')">+</button></td>
+            <td><button onclick="fun1('-')">-</button></td>
+        </tr>
+        <tr>
+            <td> <button onclick="fun1('/')">/</button>
+                <td> <button onclick="fun1('*')">*</button>
+                    <td> <button onclick="fun1('%')">%</button>
+                    
+
+           <td> <button onclick="clear1()">clr</button></td>
+        </tr>
+    </table>
+    <script>
+              function fun(i)
+              {
+               document.getElementById("td1").innerHTML+=i;
+              }
+
+              var first;
+              var second;
+              var temp;
+              function fun1(op)
+              {
+                
+          if(op=='+')
+                {
+                     temp=1;
+                     
+                     first=document.getElementById("td1").textContent;
+
+                 document.getElementById("td1").innerHTML=" ";
+                }
+                 else if(op=='-')
+                 {
+                     temp=2;
+                     first=document.getElementById("td1").textContent;
+
+                     document.getElementById("td1").innerHTML=" ";
+                    }
+                
+                 else if(op=='/')
+                 {
+                    first=document.getElementById("td1").textContent;
+                     temp=3;
+                    document.getElementById("td1").innerHTML=" ";
+
+                 }
+                 else if(op=='*')
+                 {
+                     temp=4;
+                    first=document.getElementById("td1").textContent;
+                    document.getElementById("td1").innerHTML="";
+                 }
+
+
+                 else if(op=='=')
+                 {
+                     second=document.getElementById("td1").textContent;
+                    document.getElementById("td1").innerHTML=" "
+                    if(temp==1){
+                    var result=parseInt(first)+parseInt(second);
+                    document.getElementById("td1").innerHTML=result;
+                    }
+                    else if(temp==2)
+                    {
+                        var result=parseInt(first)-parseInt(second);
+                    document.getElementById("td1").innerHTML=result;
+                    }
+                    else if(temp==3)
+                    {
+                        var result=parseInt(first)/parseInt(second);
+                    document.getElementById("td1").innerHTML=result;
+                    }
+                    else if(temp==4)
+                    {
+                        var result=parseInt(first)*parseInt(second);
+                    document.getElementById("td1").innerHTML=result;
+                    }
+                 }
+              }
+       function clear1()
+       {
+        
+           document.getElementById("td1").innerHTML="  ";
+       }
+    </script>
+</body>
+</html>
